@@ -3,6 +3,10 @@
 
 # Paths
 export PATH=$HOME/dotfiles/bin:$PATH
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+
+#manpath
+export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 
 # fix for go
 # export GOPATH=$PROJECTS/go
@@ -22,7 +26,7 @@ export LESS_TERMCAP_md="${yellow}";
 # export MANPAGER='less -X';
 
 # Always enable colored `grep` output.
-# export GREP_OPTIONS='--color=auto';
+export GREP_OPTIONS='--color=auto';
 
 # Move homebrew cask apps directly inside system-wide applications directory
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -35,8 +39,13 @@ export DIGITALOCEAN_PRIVATE_NETWORKING=true
 # docker-machine google cloud engine driver
 # https://docs.docker.com/machine/drivers/gce/
 # export GOOGLE_MACHINE_TYPE=f1-micro
+export GOOGLE_MACHINE_TYPE=n1-standard-1
+export GOOGLE_PROJECT=rahul286-com
+export GOOGLE_ZONE=asia-east1-a
+export GOOGLE_DISK_TYPE=pd-ssd
+# export GOOGLE_DISK_SIZE=50
 # export GOOGLE_MACHINE_IMAGE=ubuntu-14-04
-# export GOOGLE_MACHINE_IMAGE=https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-1404-trusty-v20160114e
+export GOOGLE_MACHINE_IMAGE=https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-1404-trusty-v20160114e
 
 # docker-machine virtualbox driver
 # https://docs.docker.com/machine/drivers/virtualbox/

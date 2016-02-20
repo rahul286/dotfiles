@@ -4,7 +4,11 @@
 
 
 # docker-machine
-dm () { eval $(docker-machine env $1) }
+dme () { eval $(docker-machine env $1) }
+drm () {
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+}
 
 # rsync downloads to external HDD
 torext() {

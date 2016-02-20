@@ -63,6 +63,9 @@ bash scripts/osx.sh
 # symlink it up!
 ln -s ~/dotfiles/.zshrc ~
 ln -s ~/dotfiles/config/.* ~
+
+#install oh-my-zsh
+curl -L http://install.ohmyz.sh | sh
 ##################################################################################################
 
 ## hide dotfiles folder in home

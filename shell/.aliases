@@ -1,8 +1,11 @@
 ## sources from which I copied include but not limited to
 ## https://github.com/paulirish/dotfiles/blob/master/.aliases
 ## https://github.com/s10wen/dotfiles/blob/master/.aliases
+## https://github.com/mattstauffer/ohmyzsh-dotfiles/blob/master/.mix-aliases
 
 alias cask='brew cask' # i <3 u cask
+alias key="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
+alias pyserver='open http://localhost:8000 && python -m SimpleHTTPServer'
 
 alias zshconfig="atom ~/.zshrc"
 alias ohmyzsh="atom ~/.oh-my-zsh"
@@ -58,3 +61,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+alias dk="docker"
+alias dm="docker-machine"
+alias ad="atom ~/dotfiles/"
