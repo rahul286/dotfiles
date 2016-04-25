@@ -25,3 +25,5 @@ ZSH_THEME="clean"
 plugins=(git go brew npm node aws tugboat gcloud kubectl docker vagrant rsync wp-cli gem ruby pip python composer git-flow redis-cli docker-machine docker-compose)
 
 source $ZSH/oh-my-zsh.sh
+
+PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%}%{$fg[cyan]%}${DOCKER_MACHINE_NAME}%{$reset_color%}$(git_prompt_info)%(!.#.$) '

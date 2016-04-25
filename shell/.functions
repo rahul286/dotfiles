@@ -2,12 +2,48 @@
 ## source
 ## https://github.com/paulirish/dotfiles/blob/master/.functions
 
+# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+
+update () {
+    echo "Updating OS packages..."
+    sudo softwareupdate -i -a
+    echo "Updating brew..."
+    brew update; brew upgrade --all; brew cleanup
+    echo "Updating npm..."
+    npm update -g
+    echo "Updating gems..."
+    sudo gem update --system; sudo gem update --no-rdoc --no-ri
+    echo "Updating pip..."
+    pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
+}
 
 # docker-machine
-dme () { eval $(docker-machine env $1) }
+dme () {
+    eval $(docker-machine env $1)
+}
+
 drm () {
     docker stop $(docker ps -a -q)
     docker rm $(docker ps -a -q)
+}
+
+# clean docker - bases on http://zaiste.net/2014/09/removing_docker_containers/
+docker-clean() {
+    echo "Cleaning exited containers"
+    docker ps -aq --filter status=exited --no-trunc | xargs -r docker rm
+    echo "Cleaning dangling images"
+    docker images -q --filter dangling=true | xargs -r docker rmi
+    echo "Cleaning dangling volumes"
+    docker volume ls -q --filter dangling=true | xargs -r docker volume rm
+}
+
+docker-list() {
+    echo "Listing all container"
+    docker ps -a
+    echo "Listing all images"
+    docker images
+    echo "Listing all volumes"
+    docker volume ls
 }
 
 # rsync downloads to external HDD

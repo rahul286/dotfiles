@@ -1,12 +1,16 @@
 ## sources
 ## https://github.com/paulirish/dotfiles/blob/master/.exports
 
+## TODO http://apple.stackexchange.com/questions/69223/how-to-replace-mac-os-x-utilities-with-gnu-core-utilities
+
 # Paths
 export PATH=$HOME/dotfiles/bin:$PATH
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 #manpath
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # fix for go
 # export GOPATH=$PROJECTS/go
