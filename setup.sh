@@ -63,6 +63,7 @@ bash scripts/osx.sh
 # symlink it up!
 ln -s ~/dotfiles/.zshrc ~
 ln -s ~/dotfiles/config/.* ~
+ln -s ~/dotfiles/ansible ~
 
 #install oh-my-zsh
 curl -L http://install.ohmyz.sh | sh

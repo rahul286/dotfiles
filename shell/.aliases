@@ -6,10 +6,13 @@
 alias cask='brew cask' # i <3 u cask
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 alias pyserver='open http://localhost:8000 && python -m SimpleHTTPServer'
+alias phpserver='open http://localhost:8000 && php -S localhost:8000'
 
 alias zshconfig="atom ~/.zshrc"
 alias ohmyzsh="atom ~/.oh-my-zsh"
 
+# Anisble Playbook
+alias ap="ansible-playbook"
 # Recursively remove .DS_Store files
 alias cleands="find . -type f -name '*.DS_Store' -ls -delete"
 
