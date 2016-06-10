@@ -8,6 +8,8 @@ update () {
     sudo softwareupdate -i -a
     echo "Updating brew..."
     brew update; brew upgrade --all; brew cleanup
+    echo "Updating cask..."
+    brew cask update; brew cask cleanup
     echo "Updating npm..."
     npm update -g
     echo "Updating gems..."
