@@ -3,6 +3,9 @@
 ## https://github.com/s10wen/dotfiles/blob/master/.aliases
 ## https://github.com/mattstauffer/ohmyzsh-dotfiles/blob/master/.mix-aliases
 
+#gam https://github.com/jay0lee/GAM/wiki/
+alias gam="python /Users/rahul286/gam/GAM-3.65/src/gam.py"
+
 alias cask='brew cask' # i <3 u cask
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 alias pyserver='open http://localhost:8000 && python -m SimpleHTTPServer'
