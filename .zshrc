@@ -19,10 +19,19 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="clean"
 
+
+# Set to this to use case-sensitive completion
+# In this trying to avoid env variables polluting autocompletion
+# source - http://serverfault.com/a/438119/17440
+# xref - https://github.com/robbyrussell/oh-my-zsh/issues/3885
+CASE_SENSITIVE="true"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git go brew npm node aws tugboat gcloud kubectl docker vagrant rsync wp-cli gem ruby pip python composer git-flow redis-cli docker-machine docker-compose)
+# Commented plugins on following line
+# tugboat gcloud
+plugins=(git go brew npm node aws eb vagrant rsync wp-cli gem ruby pip python composer git-flow redis-cli docker docker-machine docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 

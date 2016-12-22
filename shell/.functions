@@ -6,8 +6,10 @@
 update () {
     echo "Updating OS packages..."
     sudo softwareupdate -i -a
+    echo "Updating Atom..."
+    apm update
     echo "Updating brew..."
-    brew update; brew upgrade --all; brew cleanup
+    brew update; brew upgrade; brew cleanup
     echo "Updating cask..."
     brew cask update; brew cask cleanup
     echo "Updating npm..."
