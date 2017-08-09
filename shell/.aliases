@@ -6,6 +6,17 @@
 #gam https://github.com/jay0lee/GAM/wiki/
 alias gam="python /Users/rahul286/gam/GAM-3.65/src/gam.py"
 
+#office download server
+alias of-ssh-remote="ssh root@tata.rtcamp.com -p 11111"
+alias of-ssh-local="ssh root@192.168.0.210"
+
+alias of-cp-tor="rsync -av --progress --remove-source-files --human-readable root@192.168.0.210:/var/lib/transmission-daemon/downloads/ ."
+alias of-cp-home="rsync -av --progress --human-readable root@192.168.0.210:/root/rahul286/ ."
+
+alias of-tor="ssh -nNT -L 9091:localhost:9091 root@tata.rtcamp.com -p 11111"
+
+
+
 alias cask='brew cask' # i <3 u cask
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 alias pyserver='open http://localhost:8000 && python -m SimpleHTTPServer'
@@ -67,3 +78,6 @@ alias reload="exec $SHELL -l"
 alias dk="docker"
 alias dm="docker-machine"
 alias ad="atom ~/dotfiles/"
+
+# for https://github.com/10up/wp-local-docker
+alias dcwp='docker-compose exec --user www-data phpfpm wp'
