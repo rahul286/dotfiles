@@ -14,6 +14,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$HOME/.zsh_custom
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -31,8 +32,22 @@ CASE_SENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Commented plugins on following line
 # tugboat gcloud
-plugins=(git go brew npm node aws eb vagrant rsync wp-cli gem ruby pip python composer git-flow redis-cli docker docker-machine docker-compose)
+# plugins=(git zsh-completions go brew npm node aws eb vagrant rsync wp-cli gem ruby pip python composer git-flow redis-cli docker docker-machine docker-compose kubectl minikube helm)
+plugins=(aws brew composer docker docker-compose gem git git-flow go kubectl node npm pip python redis-cli rsync ruby vagrant wp-cli go-zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%}%{$fg[cyan]%}${DOCKER_MACHINE_NAME}%{$reset_color%}$(git_prompt_info)%(!.#.$) '
+export PATH="/usr/local/sbin:$PATH"
+
+# ref - https://askql.wordpress.com/2011/01/11/zsh-writing-own-completion/
+# ref -
+# COMPLETION SETTINGS
+# add custom completion scripts
+fpath=(~/.zsh_custom/completion $fpath)
+
+# compsys initialization
+autoload -U compinit
+compinit

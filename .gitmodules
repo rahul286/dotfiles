@@ -1,0 +1,3 @@
+[submodule "zsh_custom/plugins/go-zsh-completions"]
+	path = zsh_custom/plugins/go-zsh-completions
+	url = https://github.com/zchee/go-zsh-completions

@@ -15,7 +15,7 @@ alias of-cp-home="rsync -av --progress --human-readable root@192.168.0.210:/root
 
 alias of-tor="ssh -nNT -L 9091:localhost:9091 root@tata.rtcamp.com -p 11111"
 
-
+alias adl="youtube-dl -x -k --audio-quality 0 --audio-format mp3"
 
 alias cask='brew cask' # i <3 u cask
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"

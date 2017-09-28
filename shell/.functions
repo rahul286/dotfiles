@@ -26,6 +26,9 @@ update () {
 
     echo "Updating pip..."
     pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
+
+    # update git repos
+    cd 
 }
 
 # docker-machine
