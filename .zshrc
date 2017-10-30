@@ -33,7 +33,7 @@ CASE_SENSITIVE="true"
 # Commented plugins on following line
 # tugboat gcloud
 # plugins=(git zsh-completions go brew npm node aws eb vagrant rsync wp-cli gem ruby pip python composer git-flow redis-cli docker docker-machine docker-compose kubectl minikube helm)
-plugins=(aws brew composer docker docker-compose gem git git-flow go kubectl node npm pip python redis-cli rsync ruby vagrant wp-cli go-zsh-completions)
+plugins=(z aws brew composer docker docker-compose gem git git-flow go kubectl node npm pip python redis-cli rsync ruby vagrant wp-cli go-zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
@@ -51,3 +51,5 @@ fpath=(~/.zsh_custom/completion $fpath)
 # compsys initialization
 autoload -U compinit
 compinit
+
+source <(helm completion zsh)

@@ -9,8 +9,9 @@ update () {
 
     echo "Updating brew..."
     brew update; brew upgrade; brew cleanup
-#    echo "Updating cask..."
-#    brew cask update; brew cask cleanup
+
+    echo "Updating cask..."
+    brew cu -ay; brew cask cleanup
 
     echo "Updating Atom..."
     yes | apm upgrade
@@ -21,6 +22,9 @@ update () {
     echo "Updating npm..."
     npm update -g
 
+    # update npm itself...
+    npm i -g npm
+
     echo "Updating gems..."
     gem update --system; gem update --no-rdoc --no-ri
 
@@ -28,7 +32,11 @@ update () {
     pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
 
     # update git repos
-    cd 
+    cd ~/dotfiles && git submodule update --recursive --remote
+
+    # upgrade zsh (so it wont promot next time)
+    upgrade_oh_my_zsh
+
 }
 
 # docker-machine
