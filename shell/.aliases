@@ -30,8 +30,8 @@ alias ap="ansible-playbook"
 # Recursively remove .DS_Store files
 alias cleands="find . -type f -name '*.DS_Store' -ls -delete"
 
-# Stopwatch
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+# Countdown timer alias for https://getbitbar.com/plugins/Time/countdown_timer.1s.rb
+alias timer='alias timer="/Users/rahul286/.bitbar/countdown_timer.1s.rb"'
 
 # IP addresses
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
