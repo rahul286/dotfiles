@@ -6,6 +6,11 @@
 #gam https://github.com/jay0lee/GAM/wiki/
 alias gam="python /Users/rahul286/gam/GAM-3.65/src/gam.py"
 
+#youtube-dl shortcuts
+alias ya="youtube-dl -x --audio-format mp3 --audio-quality 0"
+alias yq="youtube-dl -q"
+alias yt="youtube-dl"
+
 #office download server
 alias of-ssh-remote="ssh root@tata.rtcamp.com -p 11111"
 alias of-ssh-local="ssh root@192.168.0.210"

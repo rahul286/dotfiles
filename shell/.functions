@@ -39,6 +39,31 @@ update () {
 
 }
 
+# bulk pdf password remove
+function pdf-decrypt(){
+    if [ -z $1 ]
+    then
+        echo "Please specify PASSWORD for PDF(s)"
+    else
+        mkdir -p temp && for f in *.pdf ; do qpdf --password=$1 --decrypt "$f" "temp/$f"; done && mv temp/* . && rm -rf temp
+    fi    
+}
+
+# ringtone
+function ringtone () {
+    if [ -f $1 ]
+    then
+        DIR=$(dirname "$1")
+        BASE=$(basename "$1")
+        FILE="${BASE%.*}"
+        NEW=$DIR/$FILE.m4r
+        echo "Creating ringtone from \n $1 to \n $NEW"
+        ffmpeg -i $1 -ac 1 -ab 320000 -f mp4 -acodec aac -y $NEW
+    else
+        echo "Please specify filepath as input"
+    fi
+}
+
 # docker-machine
 dme () {
     eval $(docker-machine env $1)
