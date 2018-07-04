@@ -13,7 +13,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 # taps
 brew tap josegonzalez/php
-brew tap homebrew/dupes
+
+# deprecated
+# brew tap homebrew/dupes
 
 # Make sure we’re using the latest Homebrew.
 brew update
