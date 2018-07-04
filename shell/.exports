@@ -15,6 +15,9 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 # export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 # export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
+#python3 https://gist.github.com/patriciogonzalezvivo/77da993b14a48753efda
+export PATH=/usr/local/share/python:$PATH
+
 # fix for go
 export GOPATH=$HOME/.go
 export PATH="$GOPATH/bin:$PATH"
