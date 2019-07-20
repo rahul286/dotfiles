@@ -19,7 +19,7 @@ cd dotfiles
 Run full setup on a fresh machine:
 
 ```
-./setup.sh
+bash ./scripts/setup.sh
 ```
 
 Or run scripts from `/scripts` folder selectively

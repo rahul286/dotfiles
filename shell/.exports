@@ -5,22 +5,25 @@
 
 # $PATH bin paths
 export PATH=$HOME/dotfiles/bin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH="/usr/local/opt/php70/bin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
-# export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-# export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# Override mac utils with GNU/external counterpart
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-# man path
-# export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
-# export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-#python3 https://gist.github.com/patriciogonzalezvivo/77da993b14a48753efda
+# fix for python3 https://gist.github.com/patriciogonzalezvivo/77da993b14a48753efda
 export PATH=/usr/local/share/python:$PATH
 
 # fix for go
 export GOPATH=$HOME/.go
 export PATH="$GOPATH/bin:$PATH"
+
+export TS_SLOTS=5
 
 # Make vim the default editor.
 export EDITOR='atom';
@@ -40,24 +43,3 @@ export GREP_OPTIONS='--color=auto';
 
 # Move homebrew cask apps directly inside system-wide applications directory
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-# docker-machine digitalocean driver
-#export DIGITALOCEAN_IMAGE=ubuntu-14-04-x64
-#export DIGITALOCEAN_REGION=sgp1
-#export DIGITALOCEAN_PRIVATE_NETWORKING=true
-
-# docker-machine google cloud engine driver
-# https://docs.docker.com/machine/drivers/gce/
-# export GOOGLE_MACHINE_TYPE=f1-micro
-#export GOOGLE_MACHINE_TYPE=n1-standard-1
-#export GOOGLE_PROJECT=rahul286-com
-#export GOOGLE_ZONE=asia-east1-a
-#export GOOGLE_DISK_TYPE=pd-ssd
-# export GOOGLE_DISK_SIZE=50
-# export GOOGLE_MACHINE_IMAGE=ubuntu-14-04
-#export GOOGLE_MACHINE_IMAGE=https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-1404-trusty-v20160114e
-
-# docker-machine virtualbox driver
-# https://docs.docker.com/machine/drivers/virtualbox/
-export VIRTUALBOX_MEMORY_SIZE=512
-export VIRTUALBOX_DISK_SIZE=20000

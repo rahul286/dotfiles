@@ -28,8 +28,11 @@ brew upgrade
 # Also language packages don't pollute system PATHs
 brew install python
 brew install python@2
+pip install --upgrade pip setuptools
+
 brew install ruby
 brew install php
+brew install composer
 
 # additional lanuages
 brew install go
@@ -47,7 +50,7 @@ brew install ffmpeg
 brew install wget
 brew install wp-cli
 brew install youtube-dl
-
+brew install mas
 
 # brew install coreutils
 # brew install moreutils
@@ -95,19 +98,25 @@ brew cask install combine-pdfs
 brew cask install docker
 brew cask install gas-mask
 brew cask install google-chrome
-brew cask install slack
 brew cask install subsmarine
 brew cask install transmission
 brew cask install tunnelbear
 brew cask install vlc
 brew cask install skitch
+brew cask install atom
+brew cask install visual-studio-code
+brew cask install google-photos-backup-and-sync
+
+#brew cu
+brew tap buo/cask-upgrade
+
 
 #ntfs mount in read-write mode
 brew cask install mounty
+#fix https://discussions.apple.com/thread/6872545
+brew cask install qlvideo
 
-# brew cask install atom
 # brew cask install appcleaner
-# brew cask install 1password
 # brew cask install vagrant
 # brew cask install virtualbox
 # brew cask install android-file-transfer
@@ -117,7 +126,6 @@ brew cask install mounty
 # brew cask install diffmerge
 # brew cask install dropbox
 # brew cask install firefox
-# brew cask install google-photos-backup
 # brew cask install handbrake
 # brew cask install messenger
 # brew cask install mysqlworkbench
@@ -131,5 +139,24 @@ brew cask install mounty
 # Remove outdated versions from the cellar.
 brew cleanup
 brew cask cleanup
+
+# Install Apps from Mac Store
+
+mas install 497799835   #Xcode 
+mas install 488709442   #VisualJSON 
+mas install 409183694   #Keynote 
+mas install 449563756   #MyTaxIndia 
+mas install 442160987   #Flycut 
+mas install 953006734   #JSON Query 
+mas install 442168834   #SiteSucker 
+mas install 802224528   #Movie Explorer 
+mas install 1075707641  #SVG Converter 
+mas install 803453959   #Slack 
+mas install 1147396723  #WhatsApp 
+mas install 1012930195  #HandShaker
+mas install 409201541   #Pages 
+mas install 1094748271  #FullContact
+mas install 409203825   #Numbers 
+mas install 1333542190  #1Password 7
 
 exit 0

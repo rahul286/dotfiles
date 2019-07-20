@@ -4,14 +4,23 @@
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 
 update () {
+    setopt XTRACE
+
     echo "Updating OS packages..."
     sudo softwareupdate -i -a
 
+    echo "Mac App Store updates..."
+    mas upgrade
+
     echo "Updating brew..."
-    brew update; brew upgrade; brew cleanup
+    brew update
+    brew upgrade
 
     echo "Updating cask..."
-    brew cu -ay; brew cask cleanup
+    brew cu -ay
+
+    echo "Cleanup brew & cask..."
+    brew cleanup
 
     echo "Updating Atom..."
     yes | apm upgrade

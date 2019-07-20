@@ -7,3 +7,17 @@ You can run following command once. If a file already exist, following command w
 ```
 ln -s ~/dotfiles/config/.* ~
 ```
+
+
+*Credits*
+
+iTerm2 matrix theme from https://gist.github.com/rdempsey/596193b8ede69767719c
+
+cd ~/dotfiles/config/iterm2-themes/
+for f in *; do
+  cat $(basename "$f")
+  THEME=$(basename "$f")
+  cat "$THEME"
+  cat "$(cat "$f")"
+done
+#defaults write -app iTerm 'Custom Color Presets' -dict-add "$THEME" "$(cat "$f")"
