@@ -43,3 +43,6 @@ export GREP_OPTIONS='--color=auto';
 
 # Move homebrew cask apps directly inside system-wide applications directory
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Suppress git warning
+export FILTER_BRANCH_SQUELCH_WARNING=1
