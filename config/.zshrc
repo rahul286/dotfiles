@@ -61,12 +61,6 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
-#rbenv
-eval "$(rbenv init -)"
-
-# added by travis gem
-[ -f /Users/rahul286/.travis/travis.sh ] && source /Users/rahul286/.travis/travis.sh
-
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
