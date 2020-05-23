@@ -35,7 +35,8 @@ Or run scripts from `/scripts` folder selectively
 ├── config                  => config files for other softwares
 │   ├── .curlrc
 │   ├── .gemrc
-│   └── README.md
+│   ├── redirecting-rules.json  => config file for https://urlautoredirector.github.io/ 
+│   └── README.md           
 ├── scripts                 => scripts that can be run manually as per need, or from other scripts
 │   ├── README.md
 │   ├── backup.sh
@@ -49,3 +50,4 @@ Or run scripts from `/scripts` folder selectively
     ├── .inputrc            => _I am not clear with purpose of this file yet_
     └── README.md
 ```
+
