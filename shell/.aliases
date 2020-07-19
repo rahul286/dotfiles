@@ -12,10 +12,13 @@ alias bi="brew install"
 alias ci="brew cask install"
 
 #youtube-dl shortcuts
-alias ya="youtube-dl -x --audio-format mp3 --audio-quality 0"
+alias ya="youtube-dl -o '%(playlist_index)s. %(title)s.%(ext)s' -x --audio-format mp3 --audio-quality 0"
 alias yq="youtube-dl -q"
 alias yt="youtube-dl"
 alias yb="ts youtube-dl"
+
+#saavn download shortcuts
+alias sd="python3 /Users/rahul286/Sites/Saavn-Downloader/download_reloaded.py -o '/Users/rahul286/Music/Saavn' -u"
 
 #office download server
 alias of-ssh-remote="ssh root@tata.rtcamp.com -p 11111"
@@ -48,7 +51,7 @@ alias timer='alias timer="/Users/rahul286/.bitbar/countdown_timer.1s.rb"'
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-alias dig="dig +nocmd any +multiline +noall +answer"
+alias digg="dig +nocmd any +multiline +noall +answer"
 
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
@@ -93,3 +96,6 @@ alias dr="defaults write"
 
 #history search
 alias hs="history | grep -i"
+
+#fix https://github.com/pyenv/pyenv/issues/106
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
