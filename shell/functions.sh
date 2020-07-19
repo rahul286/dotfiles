@@ -22,8 +22,9 @@ update () {
     echo "Cleanup brew & cask..."
     brew cleanup
 
-    echo "Updating Atom..."
-    yes | apm upgrade
+    echo "Upgrading Python packages"
+    python3 -m pip install --upgrade setuptools
+    python3 -m pip install --upgrade pip
 
     echo 'Updating composer global packages'
     composer global update
@@ -72,16 +73,6 @@ function ringtone () {
     else
         echo "Please specify filepath as input"
     fi
-}
-
-# docker-machine
-dme () {
-    eval $(docker-machine env $1)
-}
-
-drm () {
-    docker stop $(docker ps -a -q)
-    docker rm $(docker ps -a -q)
 }
 
 # Change case
@@ -160,13 +151,13 @@ function fs() {
     fi;
 }
 
-# `a` with no arguments opens the current directory in Atom Editor, otherwise
+# `c` with no arguments opens the current directory in Code Editor, otherwise
 # opens the given location
-function a() {
+function c() {
     if [ $# -eq 0 ]; then
-        atom .;
+        code .;
     else
-        atom "$@";
+        code "$@";
     fi;
 }
 

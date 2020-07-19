@@ -12,12 +12,14 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 # Override mac utils with GNU/external counterpart
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
+#export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+#export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # fix for python3 https://gist.github.com/patriciogonzalezvivo/77da993b14a48753efda
-export PATH=/usr/local/share/python:$PATH
+#export PATH=/usr/local/share/python:$PATH
+
+# pip python etc pointing to python3 installed by Brew (bye bye MacOS python(s))
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # fix for go
 export GOPATH=$HOME/.go
