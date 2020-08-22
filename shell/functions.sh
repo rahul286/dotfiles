@@ -37,7 +37,7 @@ update () {
 
     echo "Updating gems..."
     gem update --system
-    gem update --no-rdoc --no-ri
+    gem update --no-document
 
     echo "Updating pip..."
     pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U

@@ -20,6 +20,8 @@ export ZSH_CUSTOM=$HOME/.zsh_custom
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="clean"
 
+# disable oh-my-zsh auto update prompt
+DISABLE_AUTO_UPDATE=true
 
 # Set to this to use case-sensitive completion
 # In this trying to avoid env variables polluting autocompletion
@@ -47,3 +49,6 @@ fpath=(~/.zsh_custom/completion $fpath)
 autoload -U compinit
 compinit
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

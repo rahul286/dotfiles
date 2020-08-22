@@ -21,6 +21,11 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # pip python etc pointing to python3 installed by Brew (bye bye MacOS python(s))
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
+# replace mac ruby with brew ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
 # fix for go
 export GOPATH=$HOME/.go
 export PATH="$GOPATH/bin:$PATH"
@@ -28,7 +33,7 @@ export PATH="$GOPATH/bin:$PATH"
 export TS_SLOTS=5
 
 # Make vim the default editor.
-export EDITOR='atom';
+export EDITOR='vim';
 
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';
