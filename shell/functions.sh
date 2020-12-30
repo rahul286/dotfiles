@@ -3,7 +3,7 @@
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 
-update () {
+update() {
     setopt XTRACE
 
     echo "Updating OS packages..."
@@ -40,30 +40,28 @@ update () {
     gem update --no-document
 
     echo "Updating pip..."
-    pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
+    pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U
 
     # update git repos
     cd ~/dotfiles && git submodule update --recursive --remote
 
-    # upgrade zsh (so it wont promot next time)
-    upgrade_oh_my_zsh
+    # upgrade oh_my_zsh
+    omz update
 
 }
 
 # bulk pdf password remove
-function pdf-decrypt(){
-    if [ -z $1 ]
-    then
+function pdf-decrypt() {
+    if [ -z $1 ]; then
         echo "Please specify PASSWORD for PDF(s)"
     else
-        mkdir -p temp && for f in *.pdf ; do qpdf --password=$1 --decrypt "$f" "temp/$f"; done && mv temp/* . && rm -rf temp
+        mkdir -p temp && for f in *.pdf; do qpdf --password=$1 --decrypt "$f" "temp/$f"; done && mv temp/* . && rm -rf temp
     fi
 }
 
 # ringtone
-function ringtone () {
-    if [ -f $1 ]
-    then
+function ringtone() {
+    if [ -f $1 ]; then
         DIR=$(dirname "$1")
         BASE=$(basename "$1")
         FILE="${BASE%.*}"
@@ -77,24 +75,23 @@ function ringtone () {
 
 # Change case
 
-uc () {
+uc() {
     pbpaste | awk '{print toupper($0)}' | pbcopy
 }
 
-lc () {
+lc() {
     pbpaste | awk '{print tolower($0)}' | pbcopy
 }
-
 
 # source - https://gist.github.com/jimbojsb/1630790#gistcomment-1207389
 
 function code-highlight() {
-  if [ -z "$2" ]
-    then src="pbpaste"
-  else
-    src="cat $2"
-  fi
-  $src | highlight -O rtf --syntax $1  | pbcopy
+    if [ -z "$2" ]; then
+        src="pbpaste"
+    else
+        src="cat $2"
+    fi
+    $src | highlight -O rtf --syntax $1 | pbcopy
 }
 
 # clean docker - bases on http://zaiste.net/2014/09/removing_docker_containers/
@@ -119,93 +116,124 @@ docker-list() {
 # rsync downloads to external HDD
 torext() {
     rsync -av --human-readable --progress --ignore-existing --remove-source-files root@rtgate:/home/rtcamp/Downloads /Volumes/HDD/new
-    rsync -arv --delete `mktemp -d`/ root@rtgate:/home/rtcamp/Downloads
+    rsync -arv --delete $(mktemp -d)/ root@rtgate:/home/rtcamp/Downloads
 }
 
 # find shorthand
 function f() {
-	find . -name "$1" 2>&1 | grep -v 'Permission denied'
+    find . -name "$1" 2>&1 | grep -v 'Permission denied'
 }
 
 # Create a new directory and enter it
 function mdc() {
-    mkdir -p "$@" && cd "$_";
+    mkdir -p "$@" && cd "$_"
 }
 
 # Copy w/ progress
-rc () {
-  rsync -arvz --human-readable --progress $1 $2
+rc() {
+    rsync -arvz --human-readable --progress $1 $2
 }
 
 # Determine size of a file or total size of a directory
 function fs() {
-    if du -b /dev/null > /dev/null 2>&1; then
-        local arg=-sbh;
+    if du -b /dev/null >/dev/null 2>&1; then
+        local arg=-sbh
     else
-        local arg=-sh;
+        local arg=-sh
     fi
     if [[ -n "$@" ]]; then
-        du $arg -- "$@";
+        du $arg -- "$@"
     else
-        du $arg .[^.]* *;
-    fi;
+        du $arg .[^.]* *
+    fi
 }
 
 # `c` with no arguments opens the current directory in Code Editor, otherwise
 # opens the given location
 function c() {
     if [ $# -eq 0 ]; then
-        code .;
+        code .
     else
-        code "$@";
-    fi;
+        code "$@"
+    fi
 }
 
 # `v` with no arguments opens the current directory in Vim, otherwise opens the
 # given location
 function v() {
     if [ $# -eq 0 ]; then
-        vim .;
+        vim .
     else
-        vim "$@";
-    fi;
+        vim "$@"
+    fi
 }
 
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
 function o() {
     if [ $# -eq 0 ]; then
-        open .;
+        open .
     else
-        open "$@";
-    fi;
+        open "$@"
+    fi
 }
 
 # who is using the laptop's iSight camera?
 cam() {
-	echo "Checking to see who is using the iSight camera… 📷"
-	usedby=$(lsof | grep -w "AppleCamera\|USBVDC\|iSight" | awk '{printf $2"\n"}' | xargs ps)
-	echo -e "Recent camera uses:\n$usedby"
+    echo "Checking to see who is using the iSight camera… 📷"
+    usedby=$(lsof | grep -w "AppleCamera\|USBVDC\|iSight" | awk '{printf $2"\n"}' | xargs ps)
+    echo -e "Recent camera uses:\n$usedby"
 }
 
 # animated gifs from any video
 # from alex sexton   gist.github.com/SlexAxton/4989674
 gifify() {
-  if [[ -n "$1" ]]; then
-	if [[ $2 == '--good' ]]; then
-	  ffmpeg -i $1 -r 10 -vcodec png out-static-%05d.png
-	  time convert -verbose +dither -layers Optimize -resize 900x900\> out-static*.png  GIF:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile - > $1.gif
-	  rm out-static*.png
-	else
-	  ffmpeg -i $1 -s 600x400 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 > $1.gif
-	fi
-  else
-	echo "proper usage: gifify <input_movie.mov>. You DO need to include extension."
-  fi
+    if [[ -n "$1" ]]; then
+        if [[ $2 == '--good' ]]; then
+            ffmpeg -i $1 -r 10 -vcodec png out-static-%05d.png
+            time convert -verbose +dither -layers Optimize -resize 900x900\> out-static*.png GIF:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile - >$1.gif
+            rm out-static*.png
+        else
+            ffmpeg -i $1 -s 600x400 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 >$1.gif
+        fi
+    else
+        echo "proper usage: gifify <input_movie.mov>. You DO need to include extension."
+    fi
 }
 
 # turn that video into webm.
 # brew reinstall ffmpeg --with-libvpx
-webmify(){
-	ffmpeg -i $1 -vcodec libvpx -acodec libvorbis -isync -copyts -aq 80 -threads 3 -qmax 30 -y $2 $1.webm
+webmify() {
+    ffmpeg -i $1 -vcodec libvpx -acodec libvorbis -isync -copyts -aq 80 -threads 3 -qmax 30 -y $2 $1.webm
+}
+
+## Folder video duration
+## for all folders under this path, calculate duration of all videos in it
+##      and set a tag on folder
+fdur() {
+    for ITEM in *; do
+        if [ -d "$ITEM" ]; then
+            echo "$ITEM"
+            find $ITEM -exec \
+                ffprobe -v quiet -of csv=p=0 -show_entries format=duration {} \; | 
+                paste -sd+ - | 
+                bc | 
+                awk '{printf("%02d:%02d\n",($1/60/60),($1/60%60))}' | 
+                xargs -I{} tag -0 -a {} $ITEM
+        else
+            ffprobe -v quiet -of csv=p=0 -show_entries format=duration $ITEM | 
+                awk '{printf("%02d:%02d\n",($1/60/60),($1/60%60))}' |
+                xargs -I{} tag -0 -a {} $ITEM
+        fi
+    done
+}
+
+untag() {
+    for DIR in *; do
+        # if [ -f "$DIR" ]; then
+            echo "$DIR"
+            tag -s . $DIR
+            tag -r . $DIR
+        # fi
+    done
 }
