@@ -19,7 +19,7 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 #export PATH=/usr/local/share/python:$PATH
 
 # pip python etc pointing to python3 installed by Brew (bye bye MacOS python(s))
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="$(brew --prefix)/opt/python/libexec/bin:$PATH"
 
 # replace mac ruby with brew ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
@@ -53,3 +53,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Suppress git warning
 export FILTER_BRANCH_SQUELCH_WARNING=1
+
+# plaidml fix via https://smacktrace.com/mac-big-sur-plaidml-setup-plaidml-keras-could-not-find-plaidml-configuration-file-experimental-json/
+export PLAIDML_NATIVE_PATH=/usr/local/lib/libplaidml.dylib
+export RUNFILES_DIR=/usr/local/share/plaidml

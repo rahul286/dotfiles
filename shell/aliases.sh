@@ -3,6 +3,10 @@
 ## https://github.com/s10wen/dotfiles/blob/master/.aliases
 ## https://github.com/mattstauffer/ohmyzsh-dotfiles/blob/master/.mix-aliases
 
+#python fixes https://opensource.com/article/19/5/python-3-default-mac
+# alias python=/usr/local/bin/python3
+# alias pip=/usr/local/bin/pip3
+
 #gam https://github.com/jay0lee/GAM/wiki/
 alias gam="python /Users/rahul286/gam/GAM-3.65/src/gam.py"
 
@@ -12,13 +16,13 @@ alias bi="brew install"
 alias ci="brew cask install"
 
 #youtube-dl shortcuts
-alias ya="youtube-dl -o '%(playlist_index)s. %(title)s.%(ext)s' -x --audio-format mp3 --audio-quality 0"
+alias ya="youtube-dl -o '%(playlist_index)s. %(title)s.%(ext)s' -x --audio-format mp3 --audio-quality 0 --embed-thumbnail"
 alias yq="youtube-dl -q"
 alias yt="youtube-dl"
 alias yb="ts youtube-dl"
 
 #saavn download shortcuts
-alias sd="python3 /Users/rahul286/Sites/Saavn-Downloader/download_reloaded.py -o '/Users/rahul286/Music/Saavn' -u"
+alias sd="python3 /Users/rahul286/Sites/Saavn-Downloader/download_reloaded.py -o '/Users/rahul286/Music/Saavn'"
 
 #office download server
 alias of-ssh-remote="ssh root@tata.rtcamp.com -p 11111"

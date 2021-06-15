@@ -16,31 +16,30 @@ update() {
     brew update
     brew upgrade
 
-    echo "Updating cask..."
-    brew cu -ay
+    # echo "Updating cask..."
+    # brew cu -ay
 
-    echo "Cleanup brew & cask..."
-    brew cleanup
+    # echo "Cleanup brew & cask..."
+    # brew cleanup
 
-    echo "Upgrading Python packages"
+    echo "Upgrading Python setuptools and pip itself"
     python3 -m pip install --upgrade setuptools
     python3 -m pip install --upgrade pip
+
+    echo "Updating all Python packages installed via pip..."
+    python3 -m pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs python3 -m pip install -U
 
     echo 'Updating composer global packages'
     composer global update
 
-    echo "Updating npm..."
-    npm update -g
-
-    # update npm itself...
+    echo "Updating npm itself..."
     npm i -g npm
+    echo "Updating npm packages..."
+    npm update -g
 
     echo "Updating gems..."
     gem update --system
-    gem update --no-document
-
-    echo "Updating pip..."
-    pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U
+    gem update
 
     # update git repos
     cd ~/dotfiles && git submodule update --recursive --remote
